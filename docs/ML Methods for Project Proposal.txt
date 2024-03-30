@@ -23,3 +23,11 @@ ML Classifiers
 * XGBoost: They are similar to random forest in terms of being tree based learners but we have the ability to use regularization techniques to prevent overfitting.
 * Convolutional Neural Networks: CNNs are very powerful deep learning models that have shown promising results in various audio classification tasks.
 * Recurrent Neural Networks: Since bird sounds have periodic behavior, RNNs can be useful in capturing the time dependent features.
+
+
+
+
+Intended Experiments
+
+
+The various methods mentioned above will be compared for their effectiveness in classification based on the evaluation metrics. The methods will be compared individually as well as in conjunction with other methods. For instance PCA, t-SNE and UMAP will be compared individually as well as with different classifiers for selection of an optimal pipeline.

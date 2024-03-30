@@ -1,0 +1,25 @@
+﻿Methods
+
+
+Dataset 
+The dataset used for this project will be from Kaggle. The dataset consists of 5 bird species with around 1000 wav files for each species. 
+
+
+EDA
+* Preprocessing: Techniques such as noise reduction and normalization will be applied to the raw the data
+* Waveform plots, Spectrograms and Fourier Transforms: These visualization methods will be used to understand the temporal characteristics of the sounds over time.
+* PCA, t-SNE and UMAP: These dimension reduction visualizations will be employed to help identify clusters and patterns in the data.
+
+
+Feature Selection/Extraction
+Feature selection methods like RFE and Random forest feature importance will be explored. PCA, t-SNE and UMAP will be employed for feature extraction also given the high complexity of the data. 
+
+
+ML Classifiers
+* Baseline Model: A simple logistic regression classifier will act as a performance benchmark.
+* KNN: It is a simple but a powerful classifier. Different values of k will be used to check for underfitting and overfitting
+* Random Forest: It is also a powerful classifier which is easy to interpret. 
+* Support Vector Machine: SVMs are flexible and are able to handle non-linear data by using the kernel technique. 
+* XGBoost: They are similar to random forest in terms of being tree based learners but we have the ability to use regularization techniques to prevent overfitting.
+* Convolutional Neural Networks: CNNs are very powerful deep learning models that have shown promising results in various audio classification tasks.
+* Recurrent Neural Networks: Since bird sounds have periodic behavior, RNNs can be useful in capturing the time dependent features.

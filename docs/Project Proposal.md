@@ -5,7 +5,7 @@ Birds play a critical role in maintaining ecological balance, and their presence
 Objective
 The objective of this project is to develop a machine learning model that can accurately classify bird sounds into their respective species. This will involve preprocessing audio data, selecting relevant features, and evaluating various machine learning classifiers to determine the most effective approach for classification.
 
-Dataset
+**Dataset**
 The dataset for this project will be sourced from Kaggle and consists of approximately 1000 .wav files for each of the 5 bird species. The audio files will undergo preprocessing techniques such as noise reduction and normalization to ensure quality input for the classification models.
 
 Methodology

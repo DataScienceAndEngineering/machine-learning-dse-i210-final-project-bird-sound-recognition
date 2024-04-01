@@ -71,21 +71,3 @@ The evaluation will include cross-validation and environmental variability analy
 By developing an effective machine learning model for bird sound classification, 
 this project aims to contribute to wildlife conservation, habitat assessment, and biodiversity monitoring. 
 The findings from this study can provide insights into the ecological dynamics of bird populations and inform conservation strategies.
-
-## Citations
-
-[1] Balemarthy, Siddhardha, et al. Our Practice Of Using Machine Learning To Recognize Species By Voice. 
-arXiv:1810.09078, arXiv, 22 Oct. 2018. arXiv.org, 
-https://doi.org/10.48550/arXiv.1810.09078.
-
-[2] Mehyadin, Aska E., et al. “Birds Sound Classification Based on Machine Learning Algorithms.” 
-Asian Journal of Research in Computer Science, June 2021, pp. 1–11. journalajrcos.com,
-https://doi.org/10.9734/ajrcos/2021/v9i430227.
-
-[3] Jadhav, Yogesh, et al. “Machine Learning Approach to Classify Birds on the Basis of Their Sound.” 
-2020 International Conference on Inventive Computation Technologies (ICICT), IEEE, 2020, pp. 69–73. DOI.org (Crossref), 
-https://doi.org/10.1109/ICICT48043.2020.9112506.
-
-[4] Yang, Yiyuan, et al. SSL-Net: A Synergistic Spectral and Learning-Based Network for Efficient Bird Sound Classification. 
-arXiv:2309.08072, arXiv, 23 Dec. 2023. arXiv.org, 
-https://doi.org/10.48550/arXiv.2309.08072.

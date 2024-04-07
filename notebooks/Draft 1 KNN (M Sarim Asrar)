@@ -1,0 +1,40 @@
+import os
+import pandas as pd
+import librosa
+import numpy as np
+from sklearn.model_selection import train_test_split
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.metrics import classification_report, confusion_matrix
+from sklearn.preprocessing import StandardScaler
+
+metadata = pd.read_csv('')
+audio_directory = ''
+audio_data = []
+labels = []
+for index, row in metadata.iterrows():
+    file_path = os.path.join(audio_directory, row['filename'])    
+    audio, sample_rate = librosa.load(file_path, sr=None) #sr is None because not dealing with sample rate (using original sample right now)  
+    audio = librosa.effects.preemphasis(audio)
+    spectrogram = np.abs(librosa.stft(audio))
+    feature_vector = spectrogram.flatten()
+    selected_features = feature_vector[:500] 
+    audio_data.append(selected_features)
+    labels.append(row['label'])
+    if len(audio_data) >= 1000:
+        break
+features = np.array(audio_data)
+labels = np.array(labels)
+scaler = StandardScaler()
+features = scaler.fit_transform(features)
+X_train, X_test, y_train, y_test = train_test_split(features, labels, test_size=0.2, random_state=42)
+knn = KNeighborsClassifier(n_neighbors=5)
+knn.fit(X_train, y_train)
+y_pred = knn.predict(X_test)
+print('Confusion Matrix:')
+print()
+print(confusion_matrix(y_test, y_pred))
+print()
+print('\nClassification Report:')
+print()
+print(classification_report(y_test, y_pred))
+print()

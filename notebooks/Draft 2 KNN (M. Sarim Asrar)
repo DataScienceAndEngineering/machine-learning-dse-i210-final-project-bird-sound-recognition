@@ -1,0 +1,33 @@
+import os
+import librosa
+import pandas as pd
+import numpy as np
+from sklearn.model_selection import train_test_split
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.metrics import classification_report, confusion_matrix
+from sklearn.preprocessing import StandardScaler
+metadata = pd.read_csv('C:/Users/msari/Downloads/archive (1)/bird_songs_metadata.csv')
+audio_dir = 'C:/Users/msari/Downloads/archive (1)/wavfiles/'
+def extract_features_from_spectrogram(file_path):
+    y, sr = librosa.load(file_path)
+    stft = librosa.stft(y)
+    spectrogram = np.abs(stft) #This is fourier transform
+    mean_spectrogram = np.mean(spectrogram, axis=1)
+    std_spectrogram = np.std(spectrogram, axis=1)    
+    return np.hstack([mean_spectrogram, std_spectrogram]) #creating a horizontal stack (array) containing mean and standard deviation
+features = []
+labels = []
+for index, row in metadata.iterrows():
+    file_path = os.path.join(audio_dir, row['filename'])
+    if os.path.exists(file_path):
+        features.append(extract_features_from_spectrogram(file_path))
+        labels.append(row['species'])
+X_train, X_test, y_train, y_test = train_test_split(features, labels, test_size=0.2, random_state=42)
+scaler = StandardScaler()
+X_train_scaled = scaler.fit_transform(X_train)
+X_test_scaled = scaler.transform(X_test)
+knn = KNeighborsClassifier(n_neighbors=5)
+knn.fit(X_train_scaled, y_train)
+y_pred = knn.predict(X_test_scaled)
+print(confusion_matrix(y_test, y_pred))
+print(classification_report(y_test, y_pred))

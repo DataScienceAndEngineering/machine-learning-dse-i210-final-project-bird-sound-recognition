@@ -13,7 +13,7 @@ The link can also be found at this path in the repo: data/raw/Dataset.
 ## Code
 The code to reproduce the entire project can be found under the src folder. Requirement.txt file lists all the Python dependencies required to run the code for the entire project. 
 
-##Instructions on running the code for the Best Model (CNN+RNN)
+## Instructions on running the code for the Best Model (CNN+RNN)
 
 -> Please download and extract the dataset to a folder. The extracted folder will have a "bird_songs_metadata.csv" file and a "wavfiles" folder containing all the wav files of bird sounds.
 

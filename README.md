@@ -17,13 +17,8 @@ The code to reproduce the entire project can be found under the src folder. Requ
 
 -> Please download and extract the dataset to a folder. The extracted folder will have a "bird_songs_metadata.csv" file and a "wavfiles" folder containing all the wav files of bird sounds.
 
--> Please download the .py files below to a folder.
-src/data/make_dataset_deep.py
-src/features/build_features_deepmodels.py
-src/models/train_model_deep.py
-src/models/predict_model_deep.py
-src/visualization/visualisations_deep_models.py
-src/run_bestmodel.py
+-> Please download the following .py files to a folder.
+src/data/make_dataset_deep.py, src/features/build_features_deepmodels.py, src/models/train_model_deep.py, src/models/predict_model_deep.py, src/visualization/visualisations_deep_models.py, src/run_bestmodel.py
 
 -> Please edit the dataset paths in lines #19 and #20 of run_bestmodel.py to the folder paths containing the downloaded data. 
 

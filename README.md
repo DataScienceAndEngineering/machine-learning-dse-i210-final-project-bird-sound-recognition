@@ -13,8 +13,10 @@ The link can also be found at this path in the repo: data/raw/Dataset.
 ## Code
 The code to reproduce the entire project can be found under the src folder. Requirement.txt file lists all the Python dependencies required to run the code for the entire project. 
 
-**Instructions on running the code for the Best Model (CNN+RNN)**
+##Instructions on running the code for the Best Model (CNN+RNN)
+
 -> Please download and extract the dataset to a folder. The extracted folder will have a "bird_songs_metadata.csv" file and a "wavfiles" folder containing all the wav files of bird sounds.
+
 -> Please download the .py files below to a folder.
 src/data/make_dataset_deep.py
 src/features/build_features_deepmodels.py
@@ -22,8 +24,11 @@ src/models/train_model_deep.py
 src/models/predict_model_deep.py
 src/visualization/visualisations_deep_models.py
 src/run_bestmodel.py
+
 -> Please edit the dataset paths in lines #19 and #20 of run_bestmodel.py to the folder paths containing the downloaded data. 
+
 -> Run the run_bestmodel.py file. Please note it will take a very long time to train if there isn't a GPU available. However, the trained model can be downloaded from here: models/3CNN_1RNN_regularized_model.zip. Extract the model to a folder and edit line # 33 of the run_bestmodel.py file with the extracted model path. Ensure to comment out lines 26-31 which are related to model creation and training.
+
 -> The best model code can also be run on a notebook. Please refer to this notebook to reproduce the results: notebooks/Run_BestModel_ExampleNB_AdiM.ipynb
 
 

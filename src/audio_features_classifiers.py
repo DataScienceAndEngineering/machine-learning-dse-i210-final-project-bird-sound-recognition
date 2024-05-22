@@ -19,23 +19,3 @@ def evaluate_model(model, X_test, y_test, le, model_name, shap_analysis=False):
 
 
 
-def main():
-    # Load datasets
-    X_train_combined = np.load('/content/X_train.npy')
-    y_train_combined = np.load('/content/y_train.npy', allow_pickle=True)
-    X_test_combined = np.load('/content/X_test.npy')
-    y_test_combined = np.load('/content/y_test.npy', allow_pickle=True)
-
-    # Load models and label encoder
-    knn = joblib.load('/content/knn_model.pkl')
-    rf = joblib.load('/content/rf_model.pkl')
-    xgb_clf = joblib.load('/content/xgb_model.pkl')
-    le = joblib.load('/content/label_encoder.pkl')
-
-    # Evaluate models
-    evaluate_model(knn, X_test_combined, y_test_combined, le, "KNN")
-    evaluate_model(rf, X_test_combined, y_test_combined, le, "Random Forest")
-    evaluate_model(xgb_clf, X_test_combined, y_test_combined, le, "XGBoost")
-
-if __name__ == "__main__":
-    main()

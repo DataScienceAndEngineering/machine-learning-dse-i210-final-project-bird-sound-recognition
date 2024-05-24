@@ -1,7 +1,41 @@
-ConfigWithYourProjectName
+[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/LkCf-P6F)
+Revolutionizing Bird Sound Classification: Leveraging Machine Learning and Deep Learning Techniques
 ==============================
 # DSEI210-S24-Final-Project
-Final Project for DSEI210-S23 Please fill in the Description
+Final Project for DSEI210-S23 
+
+This repo contains the code and resources for our project focused on recognizing bird species based on their sounds. We utilized various features and models, culminating in the development of a CNN + RNN model with Mel spectrogram features, which achieved the best performance.
+
+## Dataset
+The dataset can be downloaded from kaggle. Link to download: https://www.kaggle.com/datasets/vinayshanbhag/bird-song-data-set?resource=download
+The link can also be found at this path in the repo: data/raw/Dataset. 
+
+## Code
+The code to reproduce the entire project can be found under the src folder. Requirement.txt file lists all the Python dependencies required to run the code for the entire project. 
+
+## Instructions on running the code for the Best Model (CNN+RNN)
+
+-> Please download and extract the dataset to a folder. The extracted folder will have a "bird_songs_metadata.csv" file and a "wavfiles" folder containing all the wav files of bird sounds.
+
+-> Please download the following .py files to a folder.
+src/data/make_dataset_deep.py, src/features/build_features_deepmodels.py, src/models/train_model_deep.py, src/models/predict_model_deep.py, src/visualization/visualisations_deep_models.py, src/run_bestmodel.py
+
+-> Please edit the dataset paths in lines #19 and #20 of run_bestmodel.py to the folder paths containing the downloaded data. 
+
+-> Run the run_bestmodel.py file. Please note it will take a very long time to train if there isn't a GPU available. However, the trained model can be downloaded from here: models/3CNN_1RNN_regularized_model.zip. Extract the model to a folder and edit line # 33 of the run_bestmodel.py file with the extracted model path. Ensure to comment out lines 26-31 which are related to model creation and training.
+
+-> The best model code can also be run on a notebook. Please refer to this notebook to reproduce the results: notebooks/Run_BestModel_ExampleNB_AdiM.ipynb
+
+
+
+
+
+
+
+
+
+
+
 
 Project Organization
 ------------

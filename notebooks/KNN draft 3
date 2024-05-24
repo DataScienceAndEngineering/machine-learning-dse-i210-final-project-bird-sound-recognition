@@ -1,0 +1,46 @@
+import os
+import librosa
+import pandas as pd
+import numpy as np
+from sklearn.model_selection import train_test_split
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.metrics import classification_report, confusion_matrix
+from sklearn.preprocessing import StandardScaler
+import zipfile
+
+# Paths to files on Google Drive
+zip_path = '/content/drive/MyDrive/Bird sound classification data/archive (1).zip'
+metadata_path = '/content/drive/MyDrive/Bird sound classification data/bird_songs_metadata.csv'
+
+metadata = pd.read_csv(metadata_path)
+
+def extract_features_from_spectrogram(file_path, zip_file):
+    with zip_file.open(file_path) as file:
+        y, sr = librosa.load(file, sr=None)
+    stft = librosa.stft(y)
+    spectrogram = np.abs(stft)
+    mean_spectrogram = np.mean(spectrogram, axis=1)
+    std_spectrogram = np.std(spectrogram, axis=1)
+    return np.hstack([mean_spectrogram, std_spectrogram])
+
+    features = []
+labels = []
+
+with zipfile.ZipFile(zip_path, 'r') as z:
+    for index, row in metadata.iterrows():
+        file_path = os.path.join('wavfiles', row['filename'])
+        if file_path in z.namelist():
+            features.append(extract_features_from_spectrogram(file_path, z))
+            labels.append(row['species'])
+
+X_train, X_test, y_train, y_test = train_test_split(features, labels, test_size=0.2, random_state=42)
+scaler = StandardScaler()
+X_train_scaled = scaler.fit_transform(X_train)
+X_test_scaled = scaler.transform(X_test)
+knn = KNeighborsClassifier(n_neighbors=5)
+knn.fit(X_train_scaled, y_train)
+y_pred = knn.predict(X_test_scaled)
+
+print(confusion_matrix(y_test, y_pred))
+
+print(classification_report(y_test, y_pred))
